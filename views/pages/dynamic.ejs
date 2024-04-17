@@ -9,9 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Simple Plugin Example</title>
   </head>
-  <body class="min-h-screen flex items-center justify-center">
-    <div class="text-center">
-      <p class="text-lg text-gray-600"><%= message %></p>
+  <script type="module">
+    import { enableRouter } from '/js/banno-plugin-framework-bridge.js';
+    enableRouter();
+  </script>
+  <body class="min-h-screen flex items-center justify-center flex-col">
+    <div>Anchors using: <b>@jack-henry/banno-plugin-framework-bridge</b>
     </div>
+    <br />
+    <ul>
+      <li>
+        <a href="<%= url %>">normal</a>
+      </li>
+      <li>
+        <a target="_top" href="<%= url %>">target="_top"</a>
+      </li>
+      <li>
+        <a target="_blank" href="<%= url %>">target="_blank"</a>
+      </li>
+    </ul>
   </body>
 </html>
