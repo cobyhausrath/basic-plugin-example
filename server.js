@@ -23,14 +23,18 @@ const app_port = 8080;
 // Set EJS as the application's view engine for rendering dynamic HTML pages
 app.set('view engine', 'ejs');
 
-// Used as the Plugin Card face
+// Used as the Plugin Card face - as expected - no scrolling permitted
 app.get('/iframe', async (req, res) => {
-  res.render('pages/dynamic', { message: 'Plugin iframe response' });
+  res.redirect('https://en.wikipedia.org/wiki/Main_Page');
+  // res.render('pages/dynamic', { message: 'Plugin iframe response' });
 });
 
 // Used as the Plugin Card's Primary Action Button target
+// Android (3.11.1): Webview can scroll
+// iOS (3.11.2): Webview **cannot** scroll
 app.get('/action', async (req, res) => {
-  res.render('pages/dynamic', { message: 'Plugin action response' });
+  res.redirect('https://en.wikipedia.org/wiki/Main_Page');
+  // res.render('pages/dynamic', { message: 'Plugin action response' });
 });
 
 // Start the server listening on the defined port
